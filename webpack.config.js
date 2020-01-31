@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
-const mainEntry = './src/index.js?';
+const mainEntry = './src/index.js';
 console.log("********************************************");
 console.log(" - Selected entry point is: " + mainEntry);
 
