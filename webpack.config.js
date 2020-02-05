@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 const mainEntry = './src/index.js';
 console.log("********************************************");
@@ -22,6 +22,17 @@ module.exports = (env, argv) => {
                 warnings: false,
                 errors: true
             }
+        },
+        optimization: {
+            minimizer: [
+                new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            unused: false
+                        }
+                    }
+                })
+            ]
         },
         entry: ['babel-polyfill', mainEntry],
         output: {
